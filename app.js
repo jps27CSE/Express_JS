@@ -6,12 +6,21 @@ const app = express();
 
 // app.use(morgan('dev'));
 
+function customMiddleware(req, res, next) {
+    if (req.url === '/help') {
+        res.send('<h1>the site is blocked by Administrator</h1>');
+    }
+    next()
+}
+
+app.use(customMiddleware)
+
 app.get('/about', morgan('dev'), (req, res) => {
     res.send('<h1>i am about page</h1>');
 
 })
 
-app.get('/help',(req, res) => {
+app.get('/help', (req, res) => {
     res.send('<h1>i am help page</h1>');
 })
 
@@ -20,7 +29,7 @@ app.get('/', (req, res) => {
 
 })
 
-app.get('*',(req, res) => {
+app.get('*', (req, res) => {
     res.send('<h1>404 Not Found</h1>')
 })
 
