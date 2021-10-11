@@ -2,28 +2,23 @@ const express = require("express");
 const morgan = require("morgan");
 
 const app = express();
+app.use(morgan("dev"));
 
-// app.use(morgan('dev'));
+const router = express.Router();
 
-function customMiddleware(req, res, next) {
-  if (req.url === "/help") {
-    res.send("<h1>the site is blocked by Administrator</h1>");
-  }
-  next();
-}
+router.get("/login", (req, res, next) => {
+  res.send("i am login router");
+});
 
-function tinyLogger() {
-  return (req, res, next) => {
-    console.log(`${req.method} - ${req.url}`);
-    next();
-  };
-}
+router.get("/logout", (req, res, next) => {
+  res.send("i am logout router");
+});
 
-const middleware = [customMiddleware, tinyLogger()];
+router.get("/signup", (req, res, next) => {
+  res.send("i am signup router");
+});
 
-app.use(middleware);
-
-app.use(customMiddleware);
+app.use("/user", router);
 
 app.get("/about", morgan("dev"), (req, res) => {
   res.send("<h1>i am about page</h1>");
