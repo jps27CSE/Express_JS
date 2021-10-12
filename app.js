@@ -7,6 +7,10 @@ app.use(morgan("dev"));
 
 app.use("/user", userRouter);
 app.use("/posts", postRouter);
+app.get("/products/:productID", (req, res) => {
+  console.log(req.params);
+  res.send("<h1>i am listening </h1>" + req.params.productID);
+});
 
 app.get("/about", morgan("dev"), (req, res) => {
   res.send("<h1>i am about page</h1>");
