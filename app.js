@@ -1,10 +1,12 @@
 const express = require("express");
 const morgan = require("morgan");
-const userRouter = require("./router");
+const userRouter = require("./userRoute");
+const postRouter = require("./postRoute");
 const app = express();
 app.use(morgan("dev"));
 
 app.use("/user", userRouter);
+app.use("/posts", postRouter);
 
 app.get("/about", morgan("dev"), (req, res) => {
   res.send("<h1>i am about page</h1>");
