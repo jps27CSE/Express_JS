@@ -13,10 +13,6 @@ app.use("/posts", postRouter);
 //   res.send("<h1>i am listening </h1>" + req.params.productID);
 // });
 
-router.get("/:postID", (req, res) => {
-  res.send("<h1>I am post = </h1>" + req.params.productID);
-});
-
 app.get("/about", morgan("dev"), (req, res) => {
   res.send("<h1>i am about page</h1>");
 });
