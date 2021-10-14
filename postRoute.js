@@ -1,16 +1,14 @@
 const router = require("express").Router();
+const {
+  getAllPost,
+  getSinglePost,
+  createNewPost,
+} = require("./postController");
 
-router.get("/", (req, res) => {
-  let { category, page, filter } = req.query;
-  res.send("Render all Posts");
-});
+router.get("/", getAllPost);
 
-router.post("/postID", (req, res) => {
-  res.send("Create new post");
-});
+router.post("/postID", getSinglePost);
 
-router.get("/:postID", (req, res) => {
-  res.send("<h1>I am post = </h1>" + req.params.postID);
-});
+router.get("/:postID", createNewPost);
 
 module.exports = router;
