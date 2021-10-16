@@ -10,7 +10,12 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.get("/", (req, res) => {
-  res.render("index");
+  let post = {
+    title: "Post Number 1",
+    body: "Hello this is post 1",
+    condition: true,
+  };
+  res.render("index", { title: "Jack Pritom Soren", post });
 });
 
 const PORT = process.env.PORT || 8080;

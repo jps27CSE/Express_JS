@@ -7,6 +7,12 @@
     <title>Template Engine</title>
   </head>
   <body>
-    <h1>Testing EJS</h1>
+    <h1><%= title %></h1>
+    <%= new Date().toString() %> <% if(post.condition) { %>
+    <h1><%= post.title %></h1>
+    <h1><%= post.body %></h1>
+    <% } else { %>
+    <h1>Post is not year published</h1>
+    <% } %>
   </body>
 </html>
