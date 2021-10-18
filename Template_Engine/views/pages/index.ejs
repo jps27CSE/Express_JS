@@ -6,18 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Template Engine</title>
   </head>
-
   <body>
-    <nav>
-      <li>
-        <ul>
-          <a href="/">Home</a>
-          <a href="/about">About</a>
-          <a href="/help">Help</a>
-        </ul>
-      </li>
-    </nav>
-
+    <%- include('../partials/nav.ejs') %>
     <h1><%= title %></h1>
     <%= new Date().toString() %> <% if(post.condition) { %>
     <h1><%= post.title %></h1>
