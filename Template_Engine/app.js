@@ -9,6 +9,14 @@ app.use(morgan("dev"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+app.get("/about", (req, res) => {
+  res.render("pages/about");
+});
+
+app.get("/help", (req, res) => {
+  res.render("pages/help");
+});
+
 app.get("/", (req, res) => {
   let post = {
     title: "Post Number 1",
@@ -21,7 +29,11 @@ app.get("/", (req, res) => {
     { title: "title two", author: "Pritom" },
     { title: "title three", author: "Soren" },
   ];
-  res.render("index", { title: "Jack Pritom Soren", post, posts });
+  res.render("pages/index", {
+    title: "Jack Pritom Soren",
+    post,
+    posts,
+  });
 });
 
 const PORT = process.env.PORT || 8080;
