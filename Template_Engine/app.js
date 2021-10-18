@@ -15,7 +15,13 @@ app.get("/", (req, res) => {
     body: "Hello this is post 1",
     condition: true,
   };
-  res.render("index", { title: "Jack Pritom Soren", post });
+
+  let posts = [
+    { title: "title one", author: "Jack" },
+    { title: "title two", author: "Pritom" },
+    { title: "title three", author: "Soren" },
+  ];
+  res.render("index", { title: "Jack Pritom Soren", post, posts });
 });
 
 const PORT = process.env.PORT || 8080;
