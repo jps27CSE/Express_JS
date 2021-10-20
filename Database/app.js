@@ -10,10 +10,19 @@ app.use(morgan("dev"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+let Schema = mongoose.Schema;
+let testSchema = new Schema({
+  name: String,
+});
+
+let Test = mongoose.model("test", testSchema);
+
 app.get("/", (req, res) => {
-  res.json({
-    message: "welcome",
+  let test = new Test({
+    name: "Jack",
   });
+
+  test.save();
 });
 
 const PORT = process.env.PORT || 8080;
