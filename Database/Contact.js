@@ -5,8 +5,8 @@ const contactSchema = new Schema({
     type: String,
     required: true,
     trim: true,
-    minlength: 2,
-    maxlength: 30,
+    // minlength: 2,
+    // maxlength: 30,
   },
 
   email: {
@@ -16,10 +16,10 @@ const contactSchema = new Schema({
   },
   phone: {
     type: String,
-    required: true,
+    // required: true,
     trim: true,
-    minlength: 9,
-    maxlength: 15,
+    // minlength: 9,
+    // maxlength: 15,
   },
 });
 

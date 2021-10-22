@@ -2,7 +2,7 @@ const express = require("express");
 const morgan = require("morgan");
 const mongoose = require("mongoose");
 const { URL } = require("./url");
-const router = require("./router");
+const router = require("./routes");
 const app = express();
 
 app.use(morgan("dev"));
