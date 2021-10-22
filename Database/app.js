@@ -2,27 +2,27 @@ const express = require("express");
 const morgan = require("morgan");
 const mongoose = require("mongoose");
 const { URL } = require("./url");
-
+const router = require("./router");
 const app = express();
 
 app.use(morgan("dev"));
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use("/contacts", router);
 
-let Schema = mongoose.Schema;
-let testSchema = new Schema({
-  name: String,
-});
+// let Schema = mongoose.Schema;
+// let testSchema = new Schema({
+//   name: String,
+// });
 
-let Test = mongoose.model("test", testSchema);
+// let Test = mongoose.model("test", testSchema);
 
 app.get("/", (req, res) => {
-  let test = new Test({
-    name: "Jack",
-  });
-
-  test.save();
+  // let test = new Test({
+  //   name: "Jack",
+  // });
+  // test.save();
 });
 
 const PORT = process.env.PORT || 8080;
